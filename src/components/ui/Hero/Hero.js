@@ -1,123 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Hero = () => {
+const Hero = ({ about }) => {
+    const [socialHandles, setSocialHandles] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('https://portfolio-backend-30mp.onrender.com/api/v1/get/user/65b3a22c01d900e96c4219ae');
+            const data = await response.json();
+            setSocialHandles(data.user.social_handles.filter(item => item.enabled === true));
+        };
+        fetchData();
+    }, []);
+
     return (
-        <div>
-            <section
-                className="lui-section lui-section-hero lui-gradient-top"
-                id="started-section"
-            >
-                <div className="container">
-                    {/* Hero Started */}
-                    <div className="lui-started v-line v-line-left">
-                        <div className="section hero-started">
-                            <div
-                                className="content scrolla-element-anim-1 scroll-animate"
-                                data-animate="active"
-                            >
-                                <div className="titles">
-                                    <div className="lui-subtitle">
-                                        <span>
-                                            {" "}
-                                            Hello, <b>my name is</b>
-                                        </span>
-                                    </div>
-                                    <h1
-                                        className="title splitting-text-anim-1 scroll-animate"
-                                        data-splitting="chars"
-                                        data-animate="active"
-                                    >
-                                        <span>
-                                            {/* <b>{about.name.split(' ')[0]}</b> {about.name.split(' ')[1]}{" "} */}
-                                        </span>
-                                    </h1>
-                                    <div className="label lui-subtitle">
-                                        {" "}
-                                        {/* I am <strong>{about.title}</strong> */}
-                                    </div>
-                                </div>
-                                <div className="description">
-                                    <div>
-                                        {/* <p>
-                      From {about.address.split(',')[0].trim()}, {about.address.split(',')[1].trim()}.{" "}{about.subTitle}. {" "}
-                      {about.description.split('.')[0]}.
-                    </p> */}
-                                    </div>
-                                    <div className="social-links">
-                                        {/* adding the social media links  */}
-
-                                    </div>
-                                </div>
-                                <div className="bts">
-                                    <a
-                                        target="_blank"
-                                        href="https://drive.google.com/"
-                                        className="btn"
-                                    >
-                                        <span>Download CV</span>
-                                    </a>
-                                    <a href="#skills-section" className="btn-lnk">
-                                        {" "}
-                                        My Skills{" "}
-                                    </a>
-                                </div>
-                            </div>
-                            <div
-                                className="slide scrolla-element-anim-1 scroll-animate"
-                                data-animate="active"
-                            >
-                                {/* <img
-                  _id={about.avatar._id}
-                  public_id={about.avatar.public_id}
-                  decoding="async"
-                  src={about.avatar.url}
-                  alt={`<b>${about.name.split(' ')[0]}</b> ${about.name.split(' ')[1]}`}
-                /> */}
-                                <span className="circle circle-1" />
-                                <span
-                                    className="circle img-1"
-                                    style={{
-                                        backgroundImage: "url(assets/images/pat-1.png)",
-                                    }}
-                                />
-                                <span
-                                    className="circle img-2"
-                                    style={{
-                                        backgroundImage: "url(assets/images/pat-2.png)",
-                                    }}
-                                />
-                                <span
-                                    className="circle img-3"
-                                    style={{
-                                        backgroundImage: "url(assets/images/pat-2.png)",
-                                    }}
-                                />
-                                <div className="info-list">
-                                    <ul>
-                                        <li>
-                                            <span className="num">
-                                                {/* {about.exp_year} <strong>+</strong> */}
-                                            </span>
-                                            <span className="value">
-                                                Years of <strong>Experience</strong>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            {/* <span className="num">{about.some_total}</span> */}
-                                            <span className="value">
-                                                Completed <strong>Projects</strong>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="lui-bgtitle">
-                            {/* <span>{about.title}</span> */}
-                        </div>
+        <div className="flex flex-col lg:flex-row md:max-h-screen md:px-28 px-8 p-5 bg-black text-white gap-20  ">
+            <div className='w-full lg:w-1/2  p-4 md:mt-12 '>
+                <div className="text-white text-lg mt-4 font-semibold max-w-2xl">
+                    HELLO, <span className='text-red-400 '>MY NAME IS</span>
+                    <div className="text-red-400 mt-4 mb-4 text-8xl font-serif">
+                        JOHN  <span className='text-white'>DOE</span>
                     </div>
+                    <span className="text-xl mt-6">
+                        I am a  {about?.title}
+
+                    </span>
                 </div>
-            </section>
+                <p className="text-white  mt-2 text-base font-thin whitespace-pre-wrap ">
+                    {about?.description}
+                </p>
+
+                <div className="flex flex-row justify-start mt-5 mb-5 space-x-4">
+                    {socialHandles?.map((social, index) => (
+                        <a key={index} className="w-8 h-8" target="_blank" rel="nofollow" href={social.url}>
+                            <img className="w-full h-full object-cover rounded-full" src={social.image.url} alt={social.platform} />
+                        </a>
+                    ))}
+                </div>
+                   <div className=' mt-7 ' >
+                    
+                <button className="btn btn-outline btn-error mr-6">Get Started</button>
+                <button className="btn btn-outline btn-error">Get Started</button>
+                    </div>     
+            </div>
+            <div className='w-full lg:w-1/2 p-4 relative   '>
+                <img className="w-full h-full   object-cover rounded-full" src={about?.avatar?.url} />
+
+
+                <div className="absolute bottom-28 left-0   bg-black border border-red-400 px-8 p-2 rounded-full ">
+                    <span className="text-lg font-bold">
+                        {about?.exp_year }
+                    </span>
+                    <span className="text-base">
+                    {""}  Years of <br /> <strong className='text-red-400' >Experience</strong>
+                    </span>
+                </div>
+                <div className="absolute bottom-5 right-0  bg-black border border-red-400 px-8 p-2 rounded-full ">
+                    <span className="text-lg font-bold">{about?.some_total }</span>
+                    <span className="text-base">
+                       {""} Completed <br /> <strong className='text-red-400' >Projects</strong>
+                    </span>
+                </div>
+
+
+            </div>
         </div>
     );
 };
