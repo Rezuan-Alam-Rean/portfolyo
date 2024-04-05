@@ -23,8 +23,10 @@ const Hero = () => {
         fetchData();
     }, []);
 
+    
+
     return (
-        <div className="flex flex-col lg:flex-row px-4 py-5 bg-black text-white gap-4 lg:gap-20">
+        <div className="flex flex-col lg:flex-row px-6 md:px-20 py-5 bg-black text-white gap-4 lg:gap-20">
             <div className='w-full lg:w-1/2 p-4'>
                 <div className="text-white text-lg mt-4 font-semibold max-w-2xl">
                     HELLO, <span className='text-red-400 '>MY NAME IS</span>
