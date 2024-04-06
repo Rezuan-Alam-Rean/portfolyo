@@ -27,7 +27,7 @@ const Timeline = () => {
         <div>
             <div id='works' className='text-center mt-8 '>
 
-                <p className='text-black font-bold text-4xl' >My work history</p>
+                <p className=' font-bold text-4xl' >My work history</p>
                 <h2 className=' text-red-500 ' >
                     <span
 

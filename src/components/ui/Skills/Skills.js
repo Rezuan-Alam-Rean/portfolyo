@@ -37,13 +37,13 @@ const Skills = () => {
                             <div className="flex items-center justify-between p-4">
                                 <div className='flex items-center'>
                                     <img className="w-10 h-10 mr-4 rounded-full" src={skill?.image?.url} alt={skill?.name} />
-                                    <div className="text-xl">{skill?.name}</div>
+                                    <div className="text-xl text-black">{skill?.name}</div>
                                 </div>
-                                <div className='flex justify-end'>{skill?.percentage}%</div>
+                                <div className='flex text-black justify-end'>{skill?.percentage}%</div>
                             </div>
                             <div className="relative pt-1 px-4 pb-4">
                                 <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                                    <div style={{ width: `${skill?.percentage}%` }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
+                                    <div style={{ width: `${skill?.percentage}%` }} className="shadow-none flex flex-col text-center whitespace-nowrap text-black justify-center bg-red-500"></div>
                                 </div>
                             </div>
                         </div>
