@@ -34,7 +34,7 @@ const Carousel = ({ items }) => {
     const item = items[currentIndex];
     
     return (
-        <div className="flex flex-col items-center px-6 md:px-20">
+        <div className="flex flex-col items-center px-4 md:px-20">
             <div className='w-full flex justify-between mt-4 mb-4  ' >
                 <div className="  ">
                     <h2 className=" uppercase text-3xl font-bold ">Testimonials</h2>

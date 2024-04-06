@@ -47,7 +47,7 @@ const Timeline = () => {
             <div className="p-6 md:ml-20 space-y-4 ">
 
                 <div>
-                    <h2 className="text-xl text-black mt-3 mb-8  uppercase  font-bold"> <span className='text-red-500 mr-4'>Education</span>  history</h2>
+                    <h2 className="text-xl  mt-3 mb-8  uppercase  font-bold"> <span className='text-red-500 mr-4'>Education</span>  history</h2>
                     {education?.map((item, index) => (
                         <div key={index} className="max-w-md  mx-auto mt-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl">
                             <div className="md:flex">
@@ -70,7 +70,7 @@ const Timeline = () => {
 
                 <div className='py-4 mt-8 mb-8' >
 
-                    <div className="text-xl    text-black font-bold uppercase"> <span className='text-red-500 mr-4 '>Experience</span> History </div>
+                    <div className="text-xl     font-bold uppercase"> <span className='text-red-500 mr-4 '>Experience</span> History </div>
                     {experience?.map((item, index) => (
                         <div key={index} className=" max-w-md mx-auto gap-4 mt-8  bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl">
                             <div className="md:flex">
