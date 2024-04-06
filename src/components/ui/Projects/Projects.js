@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Link from 'next/link'
 const ProjectCard = ({ project }) => {
     return (
         <div className={`p-2 md:p-5 cursor-pointer border transition-all duration-700 hover:scale-105 rounded  overflow-hidden shadow-lg bg-white `}>
@@ -16,7 +16,9 @@ const ProjectCard = ({ project }) => {
                     <a href={project?.liveurl} target="_blank" rel="noreferrer" className="block mt-1 text-2xl leading-tight font-bold text-black  hover:underline">{project?.title}</a>
                     <p className="mt-2 text-gray-500">{project?.description}</p>
 
-                    
+                    <Link href={`/${project?._id}`}>
+                        <button className='btn btn-outline btn-error mt-4' > view  </button>
+                    </Link>
 
                 </div>
             </div>
@@ -86,7 +88,7 @@ const Projects = () => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <div className="p-6 space-y-4">
+        <div id="project" className="p-6 space-y-4">
             <div className="text-center">
                 <p className='font-bold text-4xl mt-5 mb-4'> <span className='text-red-500' >My</span>  Projects</p>
                 <h2 className='font-mono' >I Have created this  this   responsive web applications that highlight the user’s experience. </h2>

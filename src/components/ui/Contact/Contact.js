@@ -5,12 +5,12 @@ import animate from "../../../assets/Animation - 1702402794506.json";
 const Contact = () => {
   return (
     <>
-      <div className="mb-5 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 mx-auto">
+      <div id="contact" className="mb-5 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 mx-auto">
         <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-red-500 mb-10">
           Contact with Me
         </p>
 
-        <div id="contact" className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div  className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Lottie */}
           <div className="my-auto">
             <Lottie className="" animationData={animate} loop={true} height={40} width={50} />

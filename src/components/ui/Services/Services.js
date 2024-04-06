@@ -20,7 +20,7 @@ const Services = () => {
     }, []);
 
     return (
-        <div>
+        <div id='services' >
             <div className="text-center">
                 <p className='font-bold text-4xl mt-5 mb-4'> <span className='text-red-500' >My</span>  Services</p>
                 <h2 className='font-mono' >I Provide Wide Range Of Digital Services</h2>

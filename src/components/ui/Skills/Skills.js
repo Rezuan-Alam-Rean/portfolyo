@@ -29,7 +29,7 @@ const Skills = () => {
                     <span className='text-red-500'>My</span> Skills
                 </div>
             </div>
-
+                
             <div className="flex flex-wrap justify-center items-center px-3 md:px-20">
                 {skills?.filter(skill => skill?.enabled).map((skill, index) => (
                     <div key={index} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4">

@@ -9,7 +9,7 @@ const Navbar = () => {
 
 
             <li className="current">
-                <a href="#home">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
                 <a href="#services">Services</a>
@@ -18,7 +18,7 @@ const Navbar = () => {
                 <a href="#works">Works</a>
             </li>
             <li>
-                <a href="#blog">Blog</a>
+                <a href="#project">Projects</a>
             </li>
             <li>
                 <a href="#contact">Contact</a>
@@ -46,9 +46,9 @@ const Navbar = () => {
                             </div>
                         </ul>
                     </div>
-                    <div className="text-red-400 mt-4 mb-4 text-2xl font-serif">
+                    <a href="/" className="text-red-400 mt-4 mb-4 text-2xl font-serif">
                         JOHN  <span className='text-white'>DOE</span>
-                    </div>
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <div className="menu menu-horizontal px-1">
@@ -58,7 +58,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-end">
-                <button className="btn btn-outline btn-error">Contact Me</button>
+                <a href="#contact" className="btn btn-outline btn-error">Contact Me</a>
                 </div>
 
             </div>

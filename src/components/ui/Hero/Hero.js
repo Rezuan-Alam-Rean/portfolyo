@@ -51,7 +51,7 @@ const Hero = () => {
                 </div>
                 <div className='mt-7' >
                     <button className="btn btn-outline btn-error mr-6">Resume</button>
-                    <button className="btn btn-outline btn-error"> See Projects</button>
+                    <a href='#project' className="btn btn-outline btn-error"> See Projects</a>
                 </div>
             </div>
             <div className='w-full h-full lg:w-1/2 p-4 relative '>
