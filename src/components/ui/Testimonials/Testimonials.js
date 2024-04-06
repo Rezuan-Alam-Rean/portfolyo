@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import LoadingPage from '@/app/loading';
 
 const Carousel = ({ items }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,9 +57,9 @@ const Carousel = ({ items }) => {
                         <img className="h-48 w-full object-cover md:w-48" src={item?.image?.url} alt={item?.name} />
                     </div>
                     <div className="p-8">
-                        <p className="mt-1 text-2xl uppercase font-bold text-black ">{item?.name}</p>
-                        <div className="tracking-wide text-lg text-black mt-2 font-semibold">{item?.position}</div>
-                        <p className="mt-2 text-gray-500 mb-3">{item?.review}</p>
+                        <p className="mt-1 text-2xl  font-bold text-black ">{item?.name}</p>
+                        <div className="tracking-wide text-lg text-red-400 mt-2 font-semibold">{item?.position}</div>
+                        <p className="mt-2 text-gray-500 mb-3 font-mono">{item?.review}</p>
                         <div className="rating">
                             <input type="radio" name="rating-1" className="mask mask-star" />
                             <input type="radio" name="rating-1" className="mask mask-star" />
@@ -96,7 +97,7 @@ const Testimonials = () => {
 
     return (
         <div className="p-6 space-y-4">
-            {isLoading ? <div>Loading...</div> : <Carousel items={enabledTestimonials} />}
+            {isLoading ? <div><span className="loading  h-28 w-28 loading-spinner text-error"></span></div> : <Carousel items={enabledTestimonials} />}
         </div>
     );
 };

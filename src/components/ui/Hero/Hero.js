@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import LoadingPage from '@/app/loading';
 
 const Hero = () => {
     const [socialHandles, setSocialHandles] = useState(null);
@@ -12,9 +13,9 @@ const Hero = () => {
             try {
                 const response = await axios.get('https://portfolio-backend-30mp.onrender.com/api/v1/get/user/65b3a22c01d900e96c4219ae');
                 const data = response.data;
+                setLoading(false);
                 setAbout(data.user.about);
                 setSocialHandles(data.user.social_handles);
-                setLoading(false);
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -23,7 +24,7 @@ const Hero = () => {
         fetchData();
     }, []);
 
-    
+    if (loading) return <LoadingPage/>;
 
     return (
         <div className="flex flex-col lg:flex-row px-6 md:px-20 py-5 bg-black text-white gap-4 lg:gap-20">
@@ -49,8 +50,8 @@ const Hero = () => {
                     ))}
                 </div>
                 <div className='mt-7' >
-                    <button className="btn btn-outline btn-error mr-6">Get Started</button>
-                    <button className="btn btn-outline btn-error">Get Started</button>
+                    <button className="btn btn-outline btn-error mr-6">Resume</button>
+                    <button className="btn btn-outline btn-error"> See Projects</button>
                 </div>
             </div>
             <div className='w-full h-full lg:w-1/2 p-4 relative '>

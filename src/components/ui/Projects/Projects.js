@@ -15,6 +15,9 @@ const ProjectCard = ({ project }) => {
                     </div>
                     <a href={project?.liveurl} target="_blank" rel="noreferrer" className="block mt-1 text-2xl leading-tight font-bold text-black  hover:underline">{project?.title}</a>
                     <p className="mt-2 text-gray-500">{project?.description}</p>
+
+                    
+
                 </div>
             </div>
         </div>
